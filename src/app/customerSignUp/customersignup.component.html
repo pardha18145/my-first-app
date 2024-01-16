@@ -3,33 +3,64 @@
         Customer Signup
         <div class="row signup-form-input">
             <div class="col-xs-2">
-                <input type="text" [(ngModel)]="full_name">
+                <input type="text" placeholder="Full Name" [(ngModel)]="full_name" 
+                [ngStyle]="applyStylingForFullName()"
+                [ngClass]="{borderColorGray : onLoadForFullName}"
+                (click)="onClickForFullName()">
+            </div>
+        </div>
+        <div class="row signup-form-input">
+            <div class="col-xs-2" *ngFor="let option of options">
+                <label>
+                    <input type="radio" [checked]="selectedOption === option" (change)="onOptionChange(option)">{{option}}
+                </label>
             </div>
         </div>
         <div class="row signup-form-input">
             <div class="col-xs-2">
-                <input type="text" [(ngModel)]="email">
+                <input type="text" placeholder="Email Address" 
+                [(ngModel)]="email" 
+                [ngStyle]="applyStylingForEmail()"
+                [ngClass]="{borderColorGray : onLoadForEmail}"
+                (click)="onClickForEmail()"
+                >
             </div>
         </div>
         <div class="row signup-form-input">
             <div class="col-xs-2">
-                <input type="text" [(ngModel)]="phone">
+                <input type="text" placeholder="Phone Number" [(ngModel)]="phone" [ngStyle]="giveStylingForPhone()"
+                [ngClass]="{borderColorGray : onLoadForPhone}"
+                (click)="onClickForPhone()"
+                >
             </div>
         </div>
         <div class="row signup-form-input">
             <div class="col-xs-2">
-                <input type="text" [(ngModel)]="address">
+                <input type="text" placeholder="Address" [(ngModel)]="address" [ngStyle]="giveStylingForAddress()"
+                [ngClass]="{borderColorGray : onLoadForAddress}"
+                (click)="onClickForAddress()"
+                >
             </div>
         </div>
         <div class="row signup-form-input">
             <div class="col-xs-2">
-                <input type="text" [(ngModel)]="password">
+                <input type="text" placeholder="Password" [(ngModel)]="password" [ngStyle]="giveStylingForPassword()"
+                [ngClass]="{borderColorGray : onLoadForPassword}"
+                (click)="onClickForPassword()"
+                >
             </div>
         </div>
         <div class="row signup-form-input">
             <div class="col-xs-2">
-                <input type="text" [(ngModel)]="confirm_password">
+                <input type="text" placeholder="Confirm Password" [(ngModel)]="confirm_password" [ngStyle]="giveStylingForConfirmPassword()"
+                [ngClass]="{borderColorGray : onLoadForConfirmPassword}"
+                (click)="onClickForConfirmPassword()"
+                >
             </div>
         </div>
+        <button [disabled]="!areAllFieldsContainingText()" (click)="onSubmit()">Submit</button>
+        <button [disabled]="!isAtleastOneFieldContainingText()" (click)="onReset()">Reset</button>
+        <div *ngIf="submitClicked; else notClickedTemplate">{{submit_message}}</div>
+        <ng-template #notClickedTemplate><p>Enter all Details and Click Submit</p></ng-template>
     </div>
 </div>  
