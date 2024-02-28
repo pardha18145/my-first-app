@@ -1,0 +1,45 @@
+.widget-container{
+    display: flex;
+    align-items: space-between;
+    .widget{
+        width: 325px;
+        height: 175px;
+        background-color: #fff;
+        border-radius: 5px;
+        color: #fff;
+        margin:10px;
+        box-shadow: 5px 5px 5px #939393;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+
+        .icon {
+            font-size:50px;
+        }
+        .value{
+            font-size: 25px;
+            padding : 35px;
+            text-align : center;
+            .top{
+                font-weight: bold;
+            }
+        }
+        &.green {
+            background-color: rgb(4,67,66);
+        }
+        &.yellow {
+            background-color: rgb(237,158,32);
+        }
+        &.red {
+            background-color: rgb(126,5,5);
+        }
+        &.blue {
+            background-color: rgb(105,32,251);
+        }
+
+        @media only screen and (max-width : 1600px){
+            width : 300px
+        }
+    }
+
+}

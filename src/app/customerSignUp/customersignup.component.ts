@@ -5,9 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './customersignup.component.html',
   styleUrl: './customersignup.component.css',
   styles : [`
-    .borderColorGray {
-      border-color: gray !important;
-    }
+
   `]
 })
 export class CustomerSignupComponent {
@@ -30,6 +28,7 @@ export class CustomerSignupComponent {
     onLoadForAddress: boolean;
     onLoadForPassword: boolean;
     onLoadForConfirmPassword: boolean;
+    customers : any[] = [];
 
     commonStyles = {
       'border': '1px solid',
@@ -144,7 +143,17 @@ export class CustomerSignupComponent {
 
     onSubmit(){
       this.submitClicked=true;
-      this.submit_message='submit message'
+      this.submit_message='submit message';
+      this.customers.push({
+        'Full Name' : this.full_name,
+        'Email' : this.email,
+        'Phone' : this.phone,
+        'Address' : this.address,
+        'Password' : this.password,
+        'Confirm Password' : this.confirm_password
+      });
+      console.log(this.customers);
+      
     }
 
     onReset(){

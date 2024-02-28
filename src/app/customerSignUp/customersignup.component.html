@@ -58,9 +58,12 @@
                 >
             </div>
         </div>
-        <button [disabled]="!areAllFieldsContainingText()" (click)="onSubmit()">Submit</button>
-        <button [disabled]="!isAtleastOneFieldContainingText()" (click)="onReset()">Reset</button>
+        <button class="btn btn-primary" [disabled]="!areAllFieldsContainingText()" (click)="onSubmit()">Submit</button>
+        <button class="btn btn-primary" [disabled]="!isAtleastOneFieldContainingText()" (click)="onReset()">Reset</button>
         <div *ngIf="submitClicked; else notClickedTemplate">{{submit_message}}</div>
+        <div *ngIf="submitClicked;">
+            <div *ngFor="let customer of customers">{{customer.Email}}</div>
+        </div>
         <ng-template #notClickedTemplate><p>Enter all Details and Click Submit</p></ng-template>
     </div>
 </div>  

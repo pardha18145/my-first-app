@@ -1,3 +1,7 @@
 .center-box-content {
     height: 65vh; /* Adjust the height of the box as needed */
 }
+
+.borderColorGray {
+    border-color: gray !important;
+  }
